@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- ============================================================
+    SEO — Personalize os campos abaixo com os dados reais
+  ============================================================ -->
+  <title>FRAME — Produtora Audiovisual</title>
+  <!-- EDITAR: título da aba e dos buscadores -->
+
+  <meta name="description" content="Produção audiovisual, cinema, filmes publicitários e motion design para marcas e histórias que merecem ser vistas." />
+  <!-- EDITAR: descrição para Google (até 160 caracteres) -->
+
+  <!-- Open Graph (compartilhamento em redes sociais) -->
+  <meta property="og:title" content="FRAME — Produtora Audiovisual" />
+  <!-- EDITAR: título para compartilhamento -->
+  <meta property="og:description" content="Produção audiovisual, cinema e motion design." />
+  <!-- EDITAR: descrição para compartilhamento -->
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <!-- EDITAR: caminho para imagem de compartilhamento (1200×630px recomendado) -->
+  <meta property="og:url" content="https://www.seudominio.com.br" />
+  <!-- EDITAR: URL real do site -->
+  <meta property="og:type" content="website" />
+
+  <!-- ============================================================
+    FONTES — Google Fonts (Manrope)
+    Altere a família se desejar outra tipografia
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- EDITAR: troque Manrope por outra fonte se desejar (ex: Inter, Geist) -->
+
+  <style>
+    /* ============================================================
+      DESIGN TOKENS — Paleta cromática e tipografia
+      Edite as variáveis abaixo para mudar a identidade visual
+    ============================================================ */
+    :root {
+      --black:        #080808;   /* EDITAR: fundo principal */
+      --black-2:      #101010;   /* EDITAR: fundo secundário */
+      --graphite:     #1A1A1A;   /* EDITAR: superfícies elevadas */
+      --white:        #F4F3EF;   /* EDITAR: texto principal */
+      --gray:         #A0A09B;   /* EDITAR: texto secundário */
+      --gray-muted:   #666660;   /* EDITAR: texto terciário */
+      --accent:       #C6F36A;   /* EDITAR: cor de destaque — verde-limão ou #C63B32 para vermelho */
+
+      --font-main: 'Manrope', sans-serif; /* EDITAR: família tipográfica principal */
+      --font-mono: 'Courier New', monospace; /* EDITAR: fonte mono para metadados */
+
+      /* Espaçamentos e raios */
+      --radius-sm: 2px;
+      --radius-md: 4px;
+
+      /* Duração de transições */
+      --dur-fast:   200ms;
+      --dur-med:    400ms;
+      --dur-slow:   700ms;
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+      /* Safe areas mobile */
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    /* ============================================================
+      RESET E BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      scroll-padding-top: env(safe-area-inset-top, 0px);
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    ul  { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* Acessibilidade — foco visível */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ============================================================
+      TIPOGRAFIA — Escala
+    ============================================================ */
+    .t-display {
+      font-size: clamp(3rem, 8vw, 9rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .t-h1 {
+      font-size: clamp(2rem, 5vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+    }
+    .t-h2 {
+      font-size: clamp(1.5rem, 3vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .t-h3 {
+      font-size: clamp(1.1rem, 2vw, 1.75rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+    .t-body   { font-size: 1rem; line-height: 1.7; font-weight: 400; }
+    .t-small  { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.01em; }
+    .t-mono   { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; }
+    .t-muted  { color: var(--gray); }
+    .t-accent { color: var(--accent); }
+
+    /* ============================================================
+      LAYOUT HELPERS
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 1440px;
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 4vw, 4rem);
+    }
+
+    .section {
+      padding-block: clamp(5rem, 10vw, 10rem);
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .flex    { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-sm  { gap: 0.75rem; }
+    .gap-md  { gap: 1.5rem; }
+
+    /* Divisor horizontal */
+    .divider {
+      border: none;
+      border-top: 1px solid #222;
+      margin-block: 0;
+    }
+
+    /* Pill / badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid #333;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--gray);
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ============================================================
+      BOTÕES
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: background var(--dur-fast) ease,
+                  color var(--dur-fast) ease,
+                  border-color var(--dur-fast) ease;
+    }
+    .btn-primary {
+      background: var(--white);
+      color: var(--black);
+    }
+    .btn-primary:hover { background: var(--accent); }
+
+    .btn-ghost {
+      border: 1px solid #333;
+      color: var(--white);
+    }
+    .btn-ghost:hover { border-color: var(--white); }
+
+    /* ============================================================
+      HEADER / NAV
+    ============================================================ */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      transition: background var(--dur-med) ease,
+                  padding var(--dur-med) ease;
+    }
+
+    .header.scrolled {
+      background: rgba(8, 8, 8, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.875rem 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Logotipo */
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      transition: color var(--dur-fast) ease;
+    }
+    .logo:hover { color: var(--accent); }
+    /* EDITAR: substitua o texto "FRAME" pelo nome real da produtora */
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray);
+      transition: color var(--dur-fast) ease;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width var(--dur-med) var(--ease-out);
+    }
+    .nav-link:hover { color: var(--white); }
+    .nav-link:hover::after { width: 100%; }
+
+    .nav-cta {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--black);
+      background: var(--white);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-sm);
+      transition: background var(--dur-fast) ease;
+    }
+    .nav-cta:hover { background: var(--accent); }
+
+    /* Menu mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 24px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      height: 1px;
+      background: var(--white);
+      transition: transform var(--dur-med) ease, opacity var(--dur-med) ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 99;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      border-bottom: 1px solid #1a1a1a;
+      padding-bottom: 1.5rem;
+      transition: color var(--dur-fast) ease;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ============================================================
+      HERO — Abertura cinematográfica
+    ============================================================ */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    /* Vídeo de fundo */
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-video-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ============================================================
+      EDITAR VÍDEO DO HERO
+      Substitua os atributos src abaixo pelos caminhos reais dos vídeos.
+      - src principal: vídeo para desktop (MP4 ou WebM)
+      - source mobile: vídeo otimizado para mobile (menor resolução)
+      - poster: imagem exibida antes do vídeo carregar (recomendado: .jpg ou .webp)
+      - O atributo "autoplay muted loop playsinline" é obrigatório para autoplay
+    ============================================================ -->
+    <!-- Exemplo de estrutura do elemento <video>:
+    <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+      <source src="assets/hero-desktop.mp4" type="video/mp4" media="(min-width: 768px)" />
+      <source src="assets/hero-mobile.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    -->
+
+    /* Overlay escuro sobre o vídeo */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      /* EDITAR: ajuste o gradiente para mais ou menos escurecimento */
+      background: linear-gradient(
+        to top,
+        rgba(8, 8, 8, 0.90) 0%,
+        rgba(8, 8, 8, 0.35) 50%,
+        rgba(8, 8, 8, 0.20) 100%
+      );
+    }
+
+    /* Conteúdo do Hero */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .hero-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 2;
+      padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-location {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--gray-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    /* EDITAR: altere a localização abaixo */
+
+    .hero-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      max-width: 560px;
+      color: var(--gray);
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+    /* EDITAR: subtítulo do hero */
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: clamp(1.5rem, 4vw, 3rem);
+      right: clamp(1.25rem, 4vw, 4rem);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-muted);
+    }
+    .scroll-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gray-muted);
+      animation: scrollAnim 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollAnim {
+      0%, 100% { transform: scaleX(1); opacity: 0.4; }
+      50%       { transform: scaleX(0.5); opacity: 1; }
+    }
+
+    /* ============================================================
+      PLACEHOLDER — vídeo ausente (remova quando tiver vídeo real)
+    ============================================================ */
+    .hero-placeholder {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .placeholder-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gray-muted);
+      letter-spacing: 0.1em;
+      border: 1px solid #2a2a2a;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ============================================================
+      SHOWREEL
+    ============================================================ */
+    .showreel {
+      background: var(--black-2);
+    }
+
+    .showreel-inner {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      cursor: pointer;
+    }
+
+    /* EDITAR: imagem de capa do showreel (thumbnail) */
+    .showreel-thumb {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur-slow) var(--ease-out);
+    }
+    .showreel-inner:hover .showreel-thumb { transform: scale(1.03); }
+
+    .showreel-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .play-btn {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 1px solid rgba(244,243,239,0.35);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color var(--dur-fast) ease,
+                  background var(--dur-fast) ease,
+                  transform var(--dur-med) ease;
+    }
+    .showreel-inner:hover .play-btn {
+      border-color: var(--accent);
+      background: rgba(198,243,106,0.12);
+      transform: scale(1.08);
+    }
+    .play-icon {
+      width: 0; height: 0;
+      margin-left: 4px;
+      border-style: solid;
+      border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent var(--white);
+    }
+
+    .showreel-meta {
+      text-align: center;
+    }
+
+    /* Modal de vídeo */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.93);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .video-modal.open { display: flex; }
+
+    .modal-inner {
+      width: 100%;
+      max-width: 1100px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      color: var(--gray);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: color var(--dur-fast) ease;
+    }
+    .modal-close:hover { color: var(--white); }
+
+    .modal-video-wrap {
+      aspect-ratio: 16/9;
+      background: var(--graphite);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .modal-video-wrap iframe,
+    .modal-video-wrap video {
+      width: 100%; height: 100%;
+      border: none;
+    }
+    /* EDITAR: dentro do modal, insira o iframe do Vimeo/YouTube ou um elemento <video>
+       Exemplo Vimeo:
+       <iframe src="https://player.vimeo.com/video/SEU_ID_AQUI?autoplay=1" allowfullscreen allow="autoplay"></iframe>
+       Exemplo YouTube:
+       <iframe src="https://www.youtube.com/embed/SEU_ID_AQUI?autoplay=1" allowfullscreen allow="autoplay"></iframe>
+    */
+
+    /* ============================================================
+      PORTFÓLIO — Galeria editorial
+    ============================================================ */
+    .portfolio { background: var(--black); }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Filtros */
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--gray);
+      border: 1px solid #2a2a2a;
+      transition: all var(--dur-fast) ease;
+    }
+    .filter-btn:hover    { color: var(--white); border-color: #444; }
+    .filter-btn.active   { color: var(--black); background: var(--white); border-color: var(--white); }
+
+    /* Grade de projetos */
+    .projects-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    /* Tamanhos de cards */
+    .proj-lg  { grid-column: span 8; }
+    .proj-md  { grid-column: span 4; }
+    .proj-sm  { grid-column: span 4; }
+    .proj-full { grid-column: span 12; }
+
+    /* Card de projeto */
+    .proj-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      background: var(--graphite);
+    }
+
+    .proj-card-img {
+      width: 100%;
+      height: 100%;
+      /* EDITAR: min-height pode ser ajustado por card individualmente */
+      min-height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--dur-slow) var(--ease-out);
+    }
+    .proj-card:hover .proj-card-img { transform: scale(1.05); }
+
+    /* Placeholder de imagem (remova quando tiver imagens reais) */
+    .proj-img-placeholder {
+      width: 100%;
+      min-height: 320px;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .proj-placeholder-inner {
+      text-align: center;
+    }
+
+    /* Info overlay */
+    .proj-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 100%);
+      transform: translateY(8px);
+      opacity: 0;
+      transition: opacity var(--dur-med) ease, transform var(--dur-med) ease;
+    }
+    .proj-card:hover .proj-info { opacity: 1; transform: translateY(0); }
+
+    /* Mobile: info sempre visível */
+    @media (max-width: 768px) {
+      .proj-info { opacity: 1; transform: none; }
+    }
+
+    .proj-category {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .proj-title {
+      font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .proj-year {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--gray);
+      margin-top: 0.25rem;
+    }
+
+    /* ============================================================
+      SERVIÇOS
+    ============================================================ */
+    .services { background: var(--black-2); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid #1e1e1e;
+    }
+
+    .service-block {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid #1e1e1e;
+      transition: background var(--dur-fast) ease;
+    }
+    .service-block:last-child { border-right: none; }
+    .service-block:hover { background: var(--graphite); }
+
+    .service-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .service-list li {
+      font-size: 0.8125rem;
+      color: var(--gray);
+      padding-left: 0.875rem;
+      position: relative;
+    }
+    .service-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gray-muted);
+      font-size: 0.7rem;
+    }
+
+    /* ============================================================
+      PROCESSO
+    ============================================================ */
+    .process { background: var(--black); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border-top: 1px solid #1e1e1e;
+      margin-top: 4rem;
+    }
+
+    .process-step {
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid #1e1e1e;
+      position: relative;
+    }
+    .process-step:last-child { border-right: none; }
+
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .step-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-desc {
+      font-size: 0.8125rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+      ESTÚDIO
+    ============================================================ */
+    .studio { background: var(--black-2); }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .studio-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .studio-img {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      /* EDITAR: min-height pode ser ajustado conforme proporção das fotos reais */
+    }
+    .studio-img img, .studio-img-placeholder {
+      width: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .studio-img-placeholder {
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* span de 2 colunas na primeira imagem */
+    .studio-img:first-child { grid-column: span 2; }
+    .studio-img:first-child img,
+    .studio-img:first-child .studio-img-placeholder { min-height: 300px; }
+
+    .studio-content {}
+
+    .studio-text {
+      color: var(--gray);
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      line-height: 1.75;
+      margin-block: 2rem;
+    }
+    /* EDITAR: texto institucional do estúdio */
+
+    .studio-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+      border-top: 1px solid #1e1e1e;
+      padding-top: 2rem;
+    }
+
+    .stat-item {}
+
+    .stat-num {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+    /* EDITAR: números de estatísticas (projetos, clientes, anos) */
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ============================================================
+      CLIENTES
+    ============================================================ */
+    .clients { background: var(--black); }
+
+    .clients-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .client-logo {
+      /* EDITAR: substitua os placeholders por logos reais (PNG ou SVG) */
+      width: 120px;
+      height: 40px;
+      background: #1a1a1a;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: grayscale(1);
+      opacity: 0.5;
+      transition: filter var(--dur-fast) ease, opacity var(--dur-fast) ease;
+    }
+    .client-logo:hover { filter: none; opacity: 1; }
+    .client-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+    /* ============================================================
+      CONTATO
+    ============================================================ */
+    .contact { background: var(--black-2); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .contact-info {}
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--gray);
+      font-size: 0.875rem;
+      transition: color var(--dur-fast) ease;
+    }
+    .contact-link:hover { color: var(--white); }
+    .contact-link-icon {
+      width: 36px; height: 36px;
+      border: 1px solid #2a2a2a;
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--gray-muted);
+    }
+
+    /* Formulário */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gray);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: var(--graphite);
+      border: 1px solid #2a2a2a;
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-family: var(--font-main);
+      font-size: 0.875rem;
+      padding: 0.75rem 1rem;
+      transition: border-color var(--dur-fast) ease;
+      appearance: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--gray-muted); }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-input.error, .form-select.error, .form-textarea.error {
+      border-color: #C63B32;
+    }
+
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-select option { background: var(--graphite); }
+
+    .form-error {
+      font-size: 0.75rem;
+      color: #C63B32;
+      display: none;
+    }
+    .form-error.visible { display: block; }
+
+    .form-submit-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-status {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    .form-status.success { color: var(--accent); }
+    .form-status.error   { color: #C63B32; }
+
+    .btn-submit {
+      position: relative;
+    }
+    .btn-submit.loading { pointer-events: none; opacity: 0.7; }
+
+    /* ============================================================
+      FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--black);
+      border-top: 1px solid #1a1a1a;
+      padding-block: 4rem 2rem;
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand {}
+
+    .footer-tagline {
+      color: var(--gray-muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+      max-width: 240px;
+    }
+    /* EDITAR: frase institucional do rodapé */
+
+    .footer-email {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--gray);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--dur-fast) ease;
+    }
+    .footer-email:hover { color: var(--white); }
+    /* EDITAR: e-mail comercial real */
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gray-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--gray);
+      transition: color var(--dur-fast) ease;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid #1a1a1a;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--gray-muted);
+    }
+    /* EDITAR: texto de copyright com nome real e ano */
+
+    .back-top {
+      font-size: 0.8rem;
+      color: var(--gray-muted);
+      transition: color var(--dur-fast) ease;
+    }
+    .back-top:hover { color: var(--white); }
+
+    /* ============================================================
+      ANIMAÇÕES DE ENTRADA (scroll reveal)
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--dur-slow) var(--ease-out),
+                  transform var(--dur-slow) var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+    .reveal-delay-4 { transition-delay: 400ms; }
+
+    /* ============================================================
+      RESPONSIVO
+    ============================================================ */
+    @media (max-width: 1200px) {
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .proj-lg, .proj-md, .proj-sm, .proj-full {
+        grid-column: span 1;
+      }
+      .proj-full { grid-column: span 2; }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .service-block { border-bottom: 1px solid #1e1e1e; }
+      .service-block:nth-child(2) { border-right: none; }
+      .service-block:nth-child(3) { border-right: 1px solid #1e1e1e; }
+      .service-block:nth-child(4) { border-right: none; }
+
+      .process-steps { grid-template-columns: repeat(3, 1fr); }
+      .process-step { border-bottom: 1px solid #1e1e1e; padding-bottom: 2rem; }
+      .process-step:nth-child(3), .process-step:last-child { border-right: none; }
+
+      .footer-main { grid-template-columns: 1fr 1fr 1fr; }
+      .footer-brand { grid-column: span 3; }
+    }
+
+    @media (max-width: 900px) {
+      .studio-grid  { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row     { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+      .proj-full { grid-column: span 1; }
+
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .service-block { border-right: none; border-bottom: 1px solid #1e1e1e; }
+
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step  { border-right: none; }
+
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+
+      .studio-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .studio-stats { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+    HEADER / NAVEGAÇÃO
+  ============================================================ -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- EDITAR: substitua "FRAME" pelo nome real da produtora -->
+        <a href="#hero" class="logo">FRAME</a>
+
+        <nav class="nav-links" aria-label="Navegação principal">
+          <!-- EDITAR: altere os textos e os anchors dos links conforme necessário -->
+          <a href="#portfolio" class="nav-link">Projetos</a>
+          <a href="#services"  class="nav-link">Serviços</a>
+          <a href="#studio"    class="nav-link">Estúdio</a>
+          <!-- EDITAR: badge de disponibilidade — remova ou altere o texto -->
+          <span class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Disponível para projetos
+          </span>
+          <a href="#contact" class="nav-cta">Iniciar projeto</a>
+        </nav>
+
+        <!-- Botão hamburger (mobile) -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+    <!-- EDITAR: espelhe os mesmos links da navegação desktop -->
+    <a href="#portfolio" class="mobile-link">Projetos</a>
+    <a href="#services"  class="mobile-link">Serviços</a>
+    <a href="#studio"    class="mobile-link">Estúdio</a>
+    <a href="#contact"   class="mobile-link">Contato</a>
+  </nav>
+
+  <main>
+
+    <!-- ==========================================================
+      HERO — Abertura cinematográfica
+    ========================================================== -->
+    <section class="hero" id="hero" aria-label="Abertura">
+
+      <!-- VÍDEO DE FUNDO
+           Descomente o bloco <video> abaixo e remova o <div class="hero-placeholder">
+           quando tiver os arquivos de vídeo reais.
+      -->
+
+      <!-- ✏️ INSERIR VÍDEO: remova os comentários e preencha os src -->
+      <!--
+      <div class="hero-video-wrap">
+        <video
+          autoplay muted loop playsinline
+          poster="assets/hero-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="assets/hero-desktop.mp4" type="video/mp4" media="(min-width: 768px)" />
+          <source src="assets/hero-mobile.mp4"  type="video/mp4" />
+        </video>
+      </div>
+      -->
+
+      <!-- PLACEHOLDER (remova quando o vídeo real estiver configurado) -->
+      <div class="hero-placeholder" aria-hidden="true">
+        <span class="placeholder-label t-mono">
+          ✏️ INSERIR VÍDEO CINEMATOGRÁFICO — hero-desktop.mp4
+        </span>
+      </div>
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Metadados do topo (localização + badge) -->
+      <div class="hero-top">
+        <div class="container">
+          <div class="hero-meta">
+            <!-- EDITAR: cidade/país da produtora -->
+            <span class="hero-location">São Paulo, Brasil — 2024</span>
+            <!-- EDITAR: remova ou ajuste o badge de disponibilidade -->
+            <span class="badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Aberto a novos projetos
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conteúdo principal -->
+      <div class="hero-content">
+        <div class="container">
+
+          <!-- EDITAR: título principal do hero -->
+          <h1 class="t-display hero-title">
+            Imagens que<br />deixam marcas.
+          </h1>
+          <!-- Sugestões alternativas de título:
+               "Movimento com intenção."
+               "Toda ideia merece uma grande imagem."
+               "Da primeira ideia ao último frame."
+          -->
+
+          <!-- EDITAR: subtítulo/descrição do hero -->
+          <p class="hero-sub">
+            Produção audiovisual, cinema, filmes publicitários e motion design
+            para marcas e histórias que merecem ser vistas.
+          </p>
+
+          <div class="hero-actions">
+            <!-- EDITAR: ajuste os anchors e textos dos botões -->
+            <a href="#portfolio" class="btn btn-primary">Explorar projetos</a>
+            <a href="#contact"   class="btn btn-ghost">Iniciar um projeto</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Indicador de scroll -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="t-mono t-muted" style="font-size:0.65rem">SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================
+      SHOWREEL
+    ========================================================== -->
+    <section class="showreel section" id="showreel" aria-label="Showreel">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div>
+            <!-- EDITAR: título da seção de showreel -->
+            <p class="t-mono t-muted" style="margin-bottom:.5rem">Showreel</p>
+            <h2 class="t-h2">Uma seleção do que fazemos.</h2>
+          </div>
+          <!-- EDITAR: duração real do showreel -->
+          <span class="t-mono t-muted">02:47</span>
+        </div>
+
+        <!-- Player do showreel -->
+        <div class="showreel-inner reveal" id="showreelTrigger" tabindex="0" role="button"
+             aria-label="Reproduzir showreel">
+
+          <!-- ✏️ INSERIR THUMBNAIL DO SHOWREEL
+               Substitua o bloco abaixo pela tag <img> com o caminho real.
+               Exemplo: <img class="showreel-thumb" src="assets/showreel-thumb.jpg" alt="Showreel thumbnail" />
+          -->
+          <div class="proj-img-placeholder showreel-thumb" style="min-height:400px;" aria-hidden="true">
+            <div class="proj-placeholder-inner">
+              <p class="t-mono t-muted">✏️ THUMBNAIL DO SHOWREEL</p>
+              <p class="t-small t-muted" style="margin-top:.4rem">showreel-thumb.jpg · proporção 16:9</p>
+            </div>
+          </div>
+
+          <div class="showreel-overlay">
+            <div class="play-btn" aria-hidden="true">
+              <div class="play-icon"></div>
+            </div>
+            <div class="showreel-meta">
+              <!-- EDITAR: título do showreel -->
+              <p class="t-small" style="margin-bottom:.25rem">Reproduzir showreel completo</p>
+              <p class="t-mono t-muted">— 2024 —</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Modal do vídeo -->
+    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Showreel">
+      <div class="modal-inner">
+        <button class="modal-close t-mono" id="modalClose" aria-label="Fechar vídeo">ESC / FECHAR</button>
+        <div class="modal-video-wrap">
+          <!-- ✏️ INSERIR VÍDEO DO SHOWREEL NO MODAL
+               Descomente e preencha o iframe com o link real do Vimeo ou YouTube.
+               Dica: use ?autoplay=1 para iniciar automaticamente ao abrir o modal.
+
+               Exemplo Vimeo:
+               <iframe
+                 src="https://player.vimeo.com/video/SEU_ID_VIMEO?autoplay=1&title=0&byline=0"
+                 allow="autoplay; fullscreen"
+                 allowfullscreen>
+               </iframe>
+
+               Exemplo YouTube:
+               <iframe
+                 src="https://www.youtube.com/embed/SEU_ID_YOUTUBE?autoplay=1"
+                 allow="autoplay; fullscreen"
+                 allowfullscreen>
+               </iframe>
+          -->
+          <div class="proj-img-placeholder" style="min-height:480px;" aria-hidden="true">
+            <div class="proj-placeholder-inner">
+              <p class="t-mono t-muted">✏️ INSERIR IFRAME DO VIMEO / YOUTUBE AQUI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+      PORTFÓLIO — Galeria editorial
+    ========================================================== -->
+    <section class="portfolio section" id="portfolio" aria-label="Portfólio">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div>
+            <p class="t-mono t-muted" style="margin-bottom:.5rem">Portfólio</p>
+            <!-- EDITAR: título da seção de portfólio -->
+            <h2 class="t-h2">Projetos.</h2>
+          </div>
+          <!-- EDITAR: total de projetos real -->
+          <span class="t-mono t-muted">12 trabalhos</span>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters reveal" role="group" aria-label="Filtrar por categoria">
+          <!-- EDITAR: adicione ou remova categorias conforme necessário -->
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="cinema">Cinema</button>
+          <button class="filter-btn" data-filter="publicidade">Publicidade</button>
+          <button class="filter-btn" data-filter="institucional">Institucional</button>
+          <button class="filter-btn" data-filter="motion">Motion Graphics</button>
+          <button class="filter-btn" data-filter="animacao">Animação</button>
+          <button class="filter-btn" data-filter="pos">Pós-produção</button>
+        </div>
+
+        <!-- Grade de projetos -->
+        <div class="projects-grid" id="projectsGrid">
+
+          <!--
+            ✏️ INSTRUÇÕES PARA ADICIONAR PROJETOS:
+            - Copie um bloco .proj-card abaixo e personalize.
+            - data-category: categoria do filtro (all, cinema, publicidade, etc.)
+            - Substituia a div .proj-img-placeholder pela tag <img> real.
+            - Preencha .proj-category, .proj-title e .proj-year com dados reais.
+            - Classes de tamanho: proj-lg (largo), proj-md (médio), proj-sm (pequeno), proj-full (tela cheia)
+            - O href do link deve apontar para a página individual do projeto.
+          -->
+
+          <!-- PROJETO 01 — Destaque principal (grande) -->
+          <article class="proj-card proj-lg reveal" data-category="publicidade">
+            <a href="projetos/projeto-01.html" aria-label="Ver projeto: Campanha Verão — Marca X">
+              <!-- ✏️ INSERIR IMAGEM: substitua pelo <img> real -->
+              <div class="proj-img-placeholder">
+                <div class="proj-placeholder-inner">
+                  <p class="t-mono t-muted">✏️ IMAGEM DO PROJETO 01</p>
+                  <p class="t-small t-muted" style="margin-top:.4rem">proj-01.jpg · 16:9 · mín. 1200px</p>
+                </div>
+              </div>
+              <div class="proj-info">
+                <!-- EDITAR: dados do projeto 01 -->
+                <span class="proj-category">Publicidade</span>
+                <h3 class="proj-title">Campanha Verão — [Nome do Cliente]</h3>
+                <p class="proj-year t-mono">2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- PROJETO 02 — Médio -->
+          <article class="proj-card proj-md reveal reveal-delay-1" data-category="cinema">
+            <a href="projetos/projeto-02.html" aria-label="Ver projeto: Curta-metragem Silêncio">
+              <!-- ✏️ INSERIR IMAGEM -->
+              <div class="proj-img-placeholder">
+                <div class="proj-placeholder-inner">
+                  <p class="t-mono t-muted">✏️ IMAGEM DO PROJETO 02</p>
+                  <p class="t-small t-muted" style="margin-top:.4rem">proj-02.jpg</p>
+                </div>
+              </div>
+              <div class="proj-info">
+                <!-- EDITAR: dados do projeto 02 -->
+                <span class="proj-category">Cinema</span>
+                <h3 class="proj-title">Curta-metragem: [Título]</h3>
+                <p class="proj-year t-mono">2023</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- PROJETO 03 — Pequeno -->
+          <article class="proj-card proj-sm reveal" data-category="motion">
+            <a href="projetos/projeto-03.html" aria-label="Ver projeto: Motion graphics marca Y">
+              <!-- ✏️ INSERIR IMAGEM -->
+              <div class="proj-img-placeholder" style="min-height:280px;">
+                <div class="proj-placeholder-inner">
+                  <p class="t-mono t-muted">✏️ IMAGEM DO PROJETO 03</p>
+                </div>
+              </div>
+              <div class="proj-info">
+                <!-- EDITAR: dados do projeto 03 -->
+                <span class="proj-category">Motion Graphics</span>
+                <h3 class="proj-title">Abertura — [Nome da Marca]</h3>
+                <p class="proj-year t-mono">2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- PROJETO 04 — Pequeno -->
+          <article class="proj-card proj-sm reveal reveal-delay-1" data-category="institucional">
+            <a href="projetos/projeto-04.html" aria-label="Ver projeto: Filme institucional empresa Z">
+              <!-- ✏️ INSERIR IMAGEM -->
+              <div class="proj-img-placeholder" style="min-height:280px;">
+                <div class="proj-placeholder-inner">
+                  <p class="t-mono t-muted">✏️ IMAGEM DO PROJETO 04</p>
+                </div>
+              </div>
+              <div class="proj-info">
+                <!-- EDITAR: dados do projeto 04 -->
+                <span class="proj-category">Institucional</span>
+                <h3 class="proj-title">Manifesto — [Empresa]</h3>
+                <p class="proj-year t-mono">2023</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- PROJETO 05 — Médio -->
+          <article class="proj-card proj-md reveal" data-category="publicidade">
+            <a href="projetos/projeto-05.html" aria-label="Ver projeto: Filme publicitário">
+              <!-- ✏️ INSERIR IMAGEM -->
+              <div class="proj-img-placeholder">
+                <div class="proj-placeholder-inner">
+                  <p class="t-mono t-muted">✏️ IMAGEM DO PROJETO 05</p>
+                </div>
+              </div>
+              <div class="proj-info">
+                <!-- EDITAR: dados do projeto 05 -->
+                <span class="proj-category">Publicidade</span>
+                <h3 class="proj-title">Filme de Produto — [Marca]</h3>
+                <p class="proj-year t-mono">2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- PROJETO 06 — Grande (invertido) -->
+          <article class="proj-card proj-lg reveal reveal-delay-1" data-category="animacao">
+            <a href="projetos/projeto-06.html" aria-label="Ver projeto: Animação 2D">
+              <!-- ✏️ INSERIR IMAGEM -->
+              <div class="proj-img-placeholder">
+                <div class="proj-placeholder-inner">
+                  <p class="t-mono t-muted">✏️ IMAGEM DO PROJETO 06</p>
+                  <p class="t-small t-muted" style="margin-top:.4rem">proj-06.jpg · mín. 1200px</p>
+                </div>
+              </div>
+              <div class="proj-info">
+                <!-- EDITAR: dados do projeto 06 -->
+                <span class="proj-category">Animação</span>
+                <h3 class="proj-title">Série Animada — [Título]</h3>
+                <p class="proj-year t-mono">2023</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- PROJETO 07 — Tela cheia (destaque especial) -->
+          <article class="proj-card proj-full reveal" data-category="cinema">
+            <a href="projetos/projeto-07.html" aria-label="Ver projeto: Longa-metragem documental">
+              <!-- ✏️ INSERIR IMAGEM PANORÂMICA -->
+              <div class="proj-img-placeholder" style="min-height:480px;">
+                <div class="proj-placeholder-inner">
+                  <p class="t-mono t-muted">✏️ IMAGEM PANORÂMICA DO PROJETO DESTAQUE</p>
+                  <p class="t-small t-muted" style="margin-top:.4rem">proj-destaque.jpg · proporção wide · mín. 1920px</p>
+                </div>
+              </div>
+              <div class="proj-info" style="padding: 2.5rem;">
+                <!-- EDITAR: dados do projeto destaque -->
+                <span class="proj-category">Cinema</span>
+                <h3 class="proj-title" style="font-size: clamp(1.25rem, 3vw, 2.25rem)">Documentário: [Título do Projeto]</h3>
+                <p class="proj-year t-mono">Direção: [Nome] · Fotografia: [Nome] · 2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!--
+            ✏️ ADICIONAR MAIS PROJETOS:
+            Copie qualquer bloco <article class="proj-card ..."> acima,
+            altere os dados e a categoria conforme necessário.
+          -->
+
+        </div><!-- /projects-grid -->
+
+      </div>
+    </section>
+
+    <!-- ==========================================================
+      SERVIÇOS
+    ========================================================== -->
+    <section class="services section" id="services" aria-label="Serviços">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div>
+            <p class="t-mono t-muted" style="margin-bottom:.5rem">O que fazemos</p>
+            <!-- EDITAR: título da seção de serviços -->
+            <h2 class="t-h2">Serviços.</h2>
+          </div>
+        </div>
+
+        <div class="services-grid reveal">
+
+          <!-- Serviço 01 -->
+          <div class="service-block">
+            <!-- EDITAR: número e nome do serviço -->
+            <p class="service-num">01</p>
+            <h3 class="service-title">Desenvolvimento Criativo</h3>
+            <ul class="service-list">
+              <!-- EDITAR: lista de subserviços -->
+              <li>Conceito e direção criativa</li>
+              <li>Pesquisa visual</li>
+              <li>Roteiro e storytelling</li>
+              <li>Linguagem audiovisual</li>
+            </ul>
+          </div>
+
+          <!-- Serviço 02 -->
+          <div class="service-block">
+            <p class="service-num">02</p>
+            <h3 class="service-title">Produção</h3>
+            <ul class="service-list">
+              <li>Direção audiovisual</li>
+              <li>Pré-produção</li>
+              <li>Cinematografia</li>
+              <li>Direção de fotografia</li>
+              <li>Filmes publicitários</li>
+            </ul>
+          </div>
+
+          <!-- Serviço 03 -->
+          <div class="service-block">
+            <p class="service-num">03</p>
+            <h3 class="service-title">Pós-produção</h3>
+            <ul class="service-list">
+              <li>Montagem e edição</li>
+              <li>Color grading</li>
+              <li>VFX e composição</li>
+              <li>Design de som</li>
+              <li>Finalização</li>
+            </ul>
+          </div>
+
+          <!-- Serviço 04 -->
+          <div class="service-block">
+            <p class="service-num">04</p>
+            <h3 class="service-title">Motion e Animação</h3>
+            <ul class="service-list">
+              <li>Motion graphics</li>
+              <li>Animação 2D e 3D</li>
+              <li>Identidade animada</li>
+              <li>Tipografia cinética</li>
+              <li>Conteúdo para campanhas</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+      PROCESSO CRIATIVO
+    ========================================================== -->
+    <section class="process section" id="process" aria-label="Processo criativo">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div>
+            <p class="t-mono t-muted" style="margin-bottom:.5rem">Como trabalhamos</p>
+            <!-- EDITAR: título da seção de processo -->
+            <h2 class="t-h2">Da ideia ao frame final.</h2>
+          </div>
+        </div>
+
+        <div class="process-steps">
+
+          <!-- EDITAR: etapas do processo — personalize nome e descrição -->
+          <div class="process-step reveal">
+            <span class="step-num">01 —</span>
+            <h3 class="step-name">Descoberta</h3>
+            <p class="step-desc">Entendemos o briefing, os objetivos da marca e o público da comunicação.</p>
+          </div>
+
+          <div class="process-step reveal reveal-delay-1">
+            <span class="step-num">02 —</span>
+            <h3 class="step-name">Conceito</h3>
+            <p class="step-desc">Pesquisa, referências e definição da linguagem visual e narrativa do projeto.</p>
+          </div>
+
+          <div class="process-step reveal reveal-delay-2">
+            <span class="step-num">03 —</span>
+            <h3 class="step-name">Pré-produção</h3>
+            <p class="step-desc">Roteiro, planejamento de equipe, locações, figurino e logística de captação.</p>
+          </div>
+
+          <div class="process-step reveal reveal-delay-3">
+            <span class="step-num">04 —</span>
+            <h3 class="step-name">Produção</h3>
+            <p class="step-desc">Filmagem com direção, fotografia e execução criativa no mais alto nível.</p>
+          </div>
+
+          <div class="process-step reveal reveal-delay-4">
+            <span class="step-num">05 —</span>
+            <h3 class="step-name">Pós-produção</h3>
+            <p class="step-desc">Edição, animação, color grading, som e finalização com atenção ao detalhe.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <span class="step-num">06 —</span>
+            <h3 class="step-name">Entrega</h3>
+            <p class="step-desc">Versões finais em todos os formatos e especificações necessários ao projeto.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+      ESTÚDIO
+    ========================================================== -->
+    <section class="studio section" id="studio" aria-label="O estúdio">
+      <div class="container">
+
+        <div class="studio-grid">
+
+          <!-- Galeria de imagens do estúdio -->
+          <div class="studio-images reveal">
+
+            <!-- ✏️ INSERIR FOTOS DO ESTÚDIO
+                 Substitua cada .studio-img-placeholder pela tag <img> real.
+                 Recomendado: fotos de bastidores, equipe, set, equipamentos.
+            -->
+
+            <div class="studio-img">
+              <div class="studio-img-placeholder" style="min-height:300px;" aria-hidden="true">
+                <p class="t-mono t-muted" style="font-size:.65rem">✏️ FOTO PRINCIPAL — estudio-01.jpg</p>
+              </div>
+            </div>
+
+            <div class="studio-img">
+              <div class="studio-img-placeholder" aria-hidden="true">
+                <p class="t-mono t-muted" style="font-size:.65rem">✏️ estudio-02.jpg</p>
+              </div>
+            </div>
+
+            <div class="studio-img">
+              <div class="studio-img-placeholder" aria-hidden="true">
+                <p class="t-mono t-muted" style="font-size:.65rem">✏️ estudio-03.jpg</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Texto institucional -->
+          <div class="studio-content reveal reveal-delay-2">
+
+            <p class="t-mono t-muted" style="margin-bottom:.75rem">O estúdio</p>
+
+            <!-- EDITAR: título da seção do estúdio -->
+            <h2 class="t-h2">Pensamos em imagens.<br />Construímos narrativas.</h2>
+
+            <!-- EDITAR: texto institucional real da produtora -->
+            <p class="studio-text">
+              [TEXTO PROVISÓRIO — substitua com a história real da produtora]
+              Somos um estúdio audiovisual fundado na crença de que toda ideia
+              merece ser transformada em uma grande imagem. Trabalhamos na
+              interseção entre cinema, publicidade e design de movimento,
+              unindo visão artística e domínio técnico para criar experiências
+              audiovisuais que ficam na memória.
+            </p>
+            <!-- EDITAR: segundo parágrafo institucional -->
+            <p class="studio-text" style="margin-top:0">
+              [TEXTO PROVISÓRIO] Nossa equipe é formada por diretores,
+              fotógrafos, editores e animadores apaixonados pelo que fazem.
+              Cada projeto é tratado como uma oportunidade de criar algo
+              que vai além do esperado.
+            </p>
+
+            <!-- EDITAR: botão com link para página de estúdio ou contato -->
+            <a href="#contact" class="btn btn-ghost">Conhecer a equipe</a>
+
+            <!-- Estatísticas -->
+            <div class="studio-stats">
+              <div class="stat-item">
+                <!-- EDITAR: número real de projetos -->
+                <div class="stat-num">+60</div>
+                <div class="stat-label">Projetos realizados</div>
+              </div>
+              <div class="stat-item">
+                <!-- EDITAR: número real de clientes/marcas -->
+                <div class="stat-num">+30</div>
+                <div class="stat-label">Marcas atendidas</div>
+              </div>
+              <div class="stat-item">
+                <!-- EDITAR: anos de atuação reais -->
+                <div class="stat-num">7</div>
+                <div class="stat-label">Anos de atuação</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+      CLIENTES E PARCEIROS
+      Descomente esta seção quando tiver logotipos reais autorizados.
+      Não exiba logotipos sem autorização.
+    ========================================================== -->
+    <section class="clients section" id="clients" aria-label="Clientes e parceiros">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div>
+            <p class="t-mono t-muted" style="margin-bottom:.5rem">Clientes &amp; parceiros</p>
+            <!-- EDITAR: título da seção de clientes -->
+            <h2 class="t-h2">Marcas que confiam no trabalho.</h2>
+          </div>
+        </div>
+
+        <div class="clients-grid reveal">
+          <!--
+            ✏️ INSERIR LOGOS DE CLIENTES
+            Descomente e repita o bloco abaixo para cada cliente.
+            Use apenas logos com autorização.
+
+            <a href="#" class="client-logo" target="_blank" rel="noopener" aria-label="[Nome do cliente]">
+              <img src="assets/logos/cliente-01.svg" alt="[Nome do cliente]" />
+            </a>
+          -->
+
+          <!-- PLACEHOLDER — remova quando inserir logos reais -->
+          <div style="width:100%; text-align:center; padding: 3rem 0;">
+            <p class="t-mono t-muted">✏️ INSERIR LOGOS DE CLIENTES COM AUTORIZAÇÃO</p>
+            <p class="t-small t-muted" style="margin-top:.5rem">Utilize apenas marcas verificadas e autorizadas</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================
+      CONTATO
+    ========================================================== -->
+    <section class="contact section" id="contact" aria-label="Contato">
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <!-- Info de contato -->
+          <div class="contact-info reveal">
+
+            <p class="t-mono t-muted" style="margin-bottom:.75rem">Contato</p>
+
+            <!-- EDITAR: título e subtítulo da seção de contato -->
+            <h2 class="t-h2">Tem uma ideia?<br />Vamos dar forma a ela.</h2>
+            <p class="t-body t-muted" style="margin-top:1.5rem; max-width:400px">
+              <!-- EDITAR: texto de convite -->
+              Empresas, marcas, agências e criadores são bem-vindos.
+              Apresente seu projeto e vamos construir algo memorável juntos.
+            </p>
+
+            <!-- Links de contato direto -->
+            <div class="contact-links">
+
+              <!-- EDITAR: e-mail real -->
+              <a href="mailto:contato@suaprodutora.com.br" class="contact-link">
+                <span class="contact-link-icon">@</span>
+                contato@suaprodutora.com.br
+              </a>
+
+              <!-- EDITAR: número real do WhatsApp (formato internacional) -->
+              <a href="https://wa.me/5511999999999" class="contact-link" target="_blank" rel="noopener">
+                <span class="contact-link-icon">WA</span>
+                WhatsApp — [número]
+              </a>
+
+              <!-- EDITAR: perfil real do Instagram -->
+              <a href="https://instagram.com/suaprodutora" class="contact-link" target="_blank" rel="noopener">
+                <span class="contact-link-icon">IG</span>
+                @suaprodutora
+              </a>
+
+              <!-- EDITAR: canal Vimeo real -->
+              <a href="https://vimeo.com/suaprodutora" class="contact-link" target="_blank" rel="noopener">
+                <span class="contact-link-icon">VM</span>
+                Vimeo — portfólio completo
+              </a>
+
+              <!-- EDITAR: perfil LinkedIn real -->
+              <a href="https://linkedin.com/company/suaprodutora" class="contact-link" target="_blank" rel="noopener">
+                <span class="contact-link-icon">IN</span>
+                LinkedIn
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Formulário -->
+          <div class="reveal reveal-delay-2">
+            <form class="contact-form" id="contactForm" novalidate>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="f-name">Nome *</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="f-name"
+                    name="name"
+                    placeholder="Seu nome"
+                    autocomplete="name"
+                    required
+                  />
+                  <span class="form-error" id="err-name">Por favor, informe seu nome.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="f-email">E-mail *</label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="f-email"
+                    name="email"
+                    placeholder="seu@email.com"
+                    autocomplete="email"
+                    required
+                  />
+                  <span class="form-error" id="err-email">Informe um e-mail válido.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="f-company">Empresa ou marca</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="f-company"
+                  name="company"
+                  placeholder="Nome da empresa (opcional)"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="f-type">Tipo de projeto *</label>
+                  <select class="form-select" id="f-type" name="type" required>
+                    <!-- EDITAR: adicione ou remova tipos de projeto -->
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="cinema">Cinema / Curta-metragem</option>
+                    <option value="publicidade">Filme publicitário</option>
+                    <option value="institucional">Filme institucional</option>
+                    <option value="motion">Motion graphics</option>
+                    <option value="animacao">Animação</option>
+                    <option value="pos">Pós-produção</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                  <span class="form-error" id="err-type">Selecione o tipo de projeto.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="f-budget">Faixa de orçamento</label>
+                  <select class="form-select" id="f-budget" name="budget">
+                    <!-- EDITAR: ajuste as faixas de orçamento conforme necessário -->
+                    <option value="" disabled selected>Selecione (opcional)</option>
+                    <option value="ate-10k">Até R$ 10 mil</option>
+                    <option value="10k-30k">R$ 10 mil — R$ 30 mil</option>
+                    <option value="30k-80k">R$ 30 mil — R$ 80 mil</option>
+                    <option value="80k-200k">R$ 80 mil — R$ 200 mil</option>
+                    <option value="acima-200k">Acima de R$ 200 mil</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="f-message">Descrição do projeto *</label>
+                <textarea
+                  class="form-textarea"
+                  id="f-message"
+                  name="message"
+                  placeholder="Conte-nos sobre o projeto: objetivos, público, referências, prazos..."
+                  required
+                ></textarea>
+                <span class="form-error" id="err-message">Descreva o projeto brevemente.</span>
+              </div>
+
+              <div class="form-submit-wrap">
+                <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                  Enviar solicitação
+                </button>
+                <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
+              </div>
+
+              <!--
+                ✏️ INTEGRAÇÃO DO FORMULÁRIO
+                Este formulário não envia e-mails por padrão.
+                Para conectar ao backend, adicione a lógica de fetch/AJAX
+                no bloco JavaScript ao final do arquivo (seção "FORMULÁRIO — envio"),
+                ou substitua pelo código de integração do seu serviço preferido:
+                  - Formspree: <form action="https://formspree.io/f/SEU_ID" method="POST">
+                  - EmailJS: consulte a documentação em emailjs.com
+                  - Backend próprio: endpoint via fetch()
+              -->
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- ==========================================================
+    FOOTER
+  ========================================================== -->
+  <footer class="footer" id="footer" aria-label="Rodapé">
+    <div class="container">
+
+      <div class="footer-main">
+
+        <!-- Marca -->
+        <div class="footer-brand">
+          <!-- EDITAR: nome real da produtora -->
+          <a href="#hero" class="logo">FRAME</a>
+          <!-- EDITAR: frase institucional do rodapé -->
+          <p class="footer-tagline">
+            Produção audiovisual para marcas e histórias que merecem ser vistas.
+          </p>
+          <!-- EDITAR: e-mail comercial real -->
+          <a href="mailto:contato@suaprodutora.com.br" class="footer-email">
+            contato@suaprodutora.com.br
+          </a>
+        </div>
+
+        <!-- Links de navegação -->
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <!-- EDITAR: links do rodapé -->
+            <li><a href="#portfolio">Projetos</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#studio">Estúdio</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Serviços -->
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul class="footer-links">
+            <!-- EDITAR: serviços reais -->
+            <li><a href="#services">Cinema</a></li>
+            <li><a href="#services">Publicidade</a></li>
+            <li><a href="#services">Motion Graphics</a></li>
+            <li><a href="#services">Pós-produção</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="footer-col">
+          <h4>Redes</h4>
+          <ul class="footer-links">
+            <!-- EDITAR: links reais das redes sociais -->
+            <li><a href="https://instagram.com/suaprodutora" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://vimeo.com/suaprodutora"     target="_blank" rel="noopener">Vimeo</a></li>
+            <li><a href="https://youtube.com/suaprodutora"   target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://linkedin.com/company/suaprodutora" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <!-- EDITAR: nome e ano real -->
+        <p class="footer-copy">
+          © 2024 FRAME Produtora Audiovisual. Todos os direitos reservados.
+        </p>
+        <a href="#hero" class="back-top t-mono">↑ Voltar ao topo</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+    JAVASCRIPT
+  ============================================================ -->
+  <script>
+    'use strict';
+
+    /* ----------------------------------------------------------
+      HEADER — scroll behavior
+    ---------------------------------------------------------- */
+    const header = document.getElementById('header');
+    const SCROLL_THRESHOLD = 60;
+
+    function onScroll() {
+      if (window.scrollY > SCROLL_THRESHOLD) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ----------------------------------------------------------
+      HAMBURGER MENU (mobile)
+    ---------------------------------------------------------- */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    /* ----------------------------------------------------------
+      SHOWREEL — abrir / fechar modal
+    ---------------------------------------------------------- */
+    const showreelTrigger = document.getElementById('showreelTrigger');
+    const videoModal      = document.getElementById('videoModal');
+    const modalClose      = document.getElementById('modalClose');
+
+    function openModal() {
+      videoModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    }
+
+    function closeModal() {
+      videoModal.classList.remove('open');
+      document.body.style.overflow = '';
+      showreelTrigger.focus();
+      // ✏️ Se quiser parar o vídeo ao fechar, adicione aqui a lógica
+      // Ex: const iframe = videoModal.querySelector('iframe');
+      //     if (iframe) iframe.src = iframe.src; // reload para pausar
+    }
+
+    showreelTrigger.addEventListener('click', openModal);
+    showreelTrigger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+    });
+    modalClose.addEventListener('click', closeModal);
+    videoModal.addEventListener('click', e => { if (e.target === videoModal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    /* ----------------------------------------------------------
+      PORTFOLIO — Filtros
+    ---------------------------------------------------------- */
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.proj-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        projectCards.forEach(card => {
+          const cat = card.dataset.category;
+          const show = filter === 'all' || cat === filter;
+
+          card.style.transition = 'opacity 300ms ease, transform 300ms ease';
+
+          if (show) {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+            card.style.display = '';
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.97)';
+            // Aguarda transição para esconder
+            setTimeout(() => {
+              if (btn.classList.contains('active') && card.dataset.category !== filter && filter !== 'all') {
+                card.style.display = 'none';
+              }
+            }, 300);
+          }
+        });
+      });
+    });
+
+    /* ----------------------------------------------------------
+      SCROLL REVEAL — animação de entrada ao rolar
+    ---------------------------------------------------------- */
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ----------------------------------------------------------
+      FORMULÁRIO — validação e envio
+      ✏️ INTEGRAÇÃO: substitua o bloco "simulação" pelo fetch real
+    ---------------------------------------------------------- */
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn   = document.getElementById('submitBtn');
+    const formStatus  = document.getElementById('formStatus');
+
+    function validateField(id, errId, condition) {
+      const field = document.getElementById(id);
+      const err   = document.getElementById(errId);
+      if (!condition(field)) {
+        field.classList.add('error');
+        err.classList.add('visible');
+        return false;
+      }
+      field.classList.remove('error');
+      err.classList.remove('visible');
+      return true;
+    }
+
+    function validateForm() {
+      const nameOk  = validateField('f-name',    'err-name',    f => f.value.trim().length >= 2);
+      const emailOk = validateField('f-email',   'err-email',   f => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
+      const typeOk  = validateField('f-type',    'err-type',    f => f.value !== '');
+      const msgOk   = validateField('f-message', 'err-message', f => f.value.trim().length >= 10);
+      return nameOk && emailOk && typeOk && msgOk;
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validateForm()) return;
+
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'Enviando...';
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+
+      /* ✏️ INTEGRAÇÃO REAL:
+         Substitua o bloco abaixo pelo fetch para seu endpoint ou serviço.
+
+         Exemplo Formspree:
+         const formData = new FormData(contactForm);
+         const res = await fetch('https://formspree.io/f/SEU_ID', {
+           method: 'POST',
+           body: formData,
+           headers: { 'Accept': 'application/json' }
+         });
+         if (res.ok) { ... sucesso ... } else { ... erro ... }
+
+         Enquanto não houver integração configurada, o formulário
+         exibe a mensagem abaixo sem enviar dados.
+      */
+
+      // SIMULAÇÃO (remova quando integrar de verdade)
+      await new Promise(r => setTimeout(r, 1200));
+      const simSuccess = true; // EDITAR: remova após integração real
+
+      submitBtn.classList.remove('loading');
+      submitBtn.textContent = 'Enviar solicitação';
+
+      if (simSuccess) {
+        formStatus.textContent = '✓ Mensagem recebida! Retornaremos em breve.';
+        formStatus.className = 'form-status success';
+        contactForm.reset();
+      } else {
+        formStatus.textContent = 'Erro ao enviar. Tente novamente ou use o e-mail.';
+        formStatus.className = 'form-status error';
+      }
+    });
+
+    /* Remove erro ao digitar */
+    contactForm.querySelectorAll('input, select, textarea').forEach(field => {
+      field.addEventListener('input', () => {
+        field.classList.remove('error');
+        const errId = 'err-' + field.id.replace('f-', '');
+        const err = document.getElementById(errId);
+        if (err) err.classList.remove('visible');
+      });
+    });
+
+    /* ----------------------------------------------------------
+      BACK TO TOP
+    ---------------------------------------------------------- */
+    document.querySelector('.back-top')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+  </script>
+
+</body>
+</html>
